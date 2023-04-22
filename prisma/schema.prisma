@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Forza_Colours {
+  id          String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  make        String
+  colour_name String
+  paint_type  String
+  hf_1        Float
+  hf_1_pos    String
+  h_1         Int
+  s_1         Float
+  s_1_pos     String
+  b_1         Float
+  b_1_pos     String
+  hf_2        Float?
+  hf_2_pos    String?
+  h_2         Int?
+  s_2         Float?
+  s_2_pos     String?
+  b_2         Float?
+  b_2_pos     String?
+
+  @@map("Forza Colours")
+}
